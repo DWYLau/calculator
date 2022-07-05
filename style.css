@@ -52,8 +52,8 @@ body {
 button {
     height:60px;
     background-color:aliceblue;
-    border: 1px solid black;
-    border-radius: 2px;
+    border: 2px solid black;
+    border-radius: 5px;
     font-size: 2rem;
     font-family:'Courier New', Courier, monospace;
     transition: all 0.3s;
