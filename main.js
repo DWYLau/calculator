@@ -39,25 +39,32 @@ function populateDisplay() {
 
 populateDisplay();
 
-function checkInput() {
-    buttons = document.querySelector(".calculator-buttons");
-    buttons.addEventListener('click', (event) => {
-        const target = event.target;
-        if (!target.matches("button")) {
-            return;
-        } else if (target.classList.contains("operator")) {
-            console.log("operator", target.value);
-            return;
-        } else if (target.classList.contains("decimal-button")) {
-            console.log("decimal", target.value);
-            return;
-        } else if (target.classList.contains("clear-button")) {
-            console.log("clear", target.value);
-            return;
-        } else {
-        console.log('digit', target.value);
-        }
-    });
-}
 
-checkInput();
+buttons = document.querySelector(".calculator-buttons");
+buttons.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!target.matches("button")) {
+        return;
+    } else if (target.classList.contains("operator")) {
+        console.log("operator", target.value);
+        return;
+    } else if (target.classList.contains("decimal-button")) {
+        console.log("decimal", target.value);
+        return;
+    } else if (target.classList.contains("clear-button")) {
+        console.log("clear", target.value);
+        return;
+    } 
+        inputNumber(target.value);
+        populateDisplay()
+});
+
+
+function inputNumber(number) {
+    let inputValue = displayValue;
+    if (inputValue === '0') {
+        displayValue = inputValue = number;
+    } else {
+        displayValue = inputValue + number;
+    }
+}
