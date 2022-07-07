@@ -1,7 +1,7 @@
 let displayValue = '0';
-let firstNumber = null;
-let secondNumber = false;
-let operator = null;
+let firstNumber = "";
+let secondNumber = "";
+let operator = "";
 
 function add(num1, num2) {
     return num1 + num2;
@@ -39,7 +39,6 @@ function populateDisplay() {
 
 populateDisplay();
 
-
 buttons = document.querySelector(".calculator-buttons");
 buttons.addEventListener('click', (event) => {
     const target = event.target;
@@ -49,14 +48,15 @@ buttons.addEventListener('click', (event) => {
         console.log("operator", target.value);
         return;
     } else if (target.classList.contains("decimal-button")) {
-        console.log("decimal", target.value);
+        inputDecimal(target.value);
+        populateDisplay();
         return;
     } else if (target.classList.contains("clear-button")) {
         console.log("clear", target.value);
         return;
     } 
         inputNumber(target.value);
-        populateDisplay()
+        populateDisplay();
 });
 
 
@@ -66,5 +66,11 @@ function inputNumber(number) {
         displayValue = inputValue = number;
     } else {
         displayValue = inputValue + number;
+    }
+}
+
+function inputDecimal(decimal) {
+    if (!displayValue.includes(decimal)) {
+        displayValue = displayValue + decimal;
     }
 }
