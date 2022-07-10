@@ -37,15 +37,12 @@ buttons.addEventListener('click', (event) => {
         populateDisplay();
         return;
     } else if (target.classList.contains("clear-button")) {
-        console.log("clear", target.value);
+        clearCalculator();
+        populateDisplay();
         return;
     } 
         inputNumber(target.value);
         populateDisplay();
-        console.log('displayValue', displayValue);
-        console.log('firstNumber', firstNumber);
-        console.log('operator', selectOperator);
-        console.log('secondNumber', secondNumber);
 });
 
 
@@ -58,14 +55,16 @@ function inputNumber(number) {
         displayValue = inputValue = number;
     } else {
         displayValue = inputValue + number;
-    }
-    console.log('displayValue', displayValue);
-    console.log('firstNumber', firstNumber);
-    console.log('operator', selectOperator);
-    console.log('secondNumber', secondNumber);
+    }   
 }
 
 function inputDecimal(decimal) {
+    if (secondNumber === true) {
+        displayValue = '0.';
+        secondNumber = false;
+        return;
+    }
+
     if (!displayValue.includes(decimal)) {
         displayValue = displayValue + decimal;
     }
@@ -73,20 +72,26 @@ function inputDecimal(decimal) {
 
 function inputOperator(nextOperator) {
     let inputValue = parseFloat(displayValue);
+
+    if (selectOperator && secondNumber) {
+        selectOperator = nextOperator;
+        return;
+    }
+
     if (firstNumber === null && typeof(inputValue) === 'number') {
         firstNumber = inputValue;
     } else if (selectOperator) {
         let result = operate (firstNumber, inputValue, selectOperator);
-        displayValue = String(result);
+        displayValue = parseFloat(result.toFixed(5));
         firstNumber = result;
     }   
         secondNumber = true;
         selectOperator = nextOperator;
-        console.log('displayValue', displayValue);
-        console.log('firstNumber', firstNumber);
-        console.log('operator', selectOperator);
-        console.log('secondNumber', secondNumber);
 }
 
-
- 
+function clearCalculator() {
+    displayValue = '0';
+    firstNumber = null;
+    secondNumber = false;
+    selectOperator = null;
+}
