@@ -74,11 +74,16 @@ button:hover {
     color: white;
 }
 
+.delete-button {
+    background-color:rgb(233, 71, 71);
+    color: white;
+}
+
 .equal-button {
     background-color: rgb(46, 137, 236);
     color:white;
     grid-row-start: 2;
-    grid-row-end: 6;
+    grid-row-end: 5;
     grid-column-start: 4;
     height: 100%;
 }

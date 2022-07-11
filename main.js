@@ -1,19 +1,19 @@
 let displayValue = '0';
 let firstNumber = null;
-let secondNumber = false;
+let checkSecondNumber = false;
 let selectOperator = null;
 
-function operate(firstOperand, secondOperand, mathOperator) {
+function operate(num1, num2, mathOperator) {
     if (mathOperator === "+") {
-        return firstOperand + secondOperand;
+        return num1 + num2;
     } else if (mathOperator === "-") {
-        return firstOperand - secondOperand;
+        return num1 - num2;
     } else if (mathOperator === "*") {
-        return firstOperand * secondOperand;
+        return num1 * num2;
     } else if (mathOperator === "/") {
-        return firstOperand / secondOperand;
+        return num1 / num2;
     }
-    return secondOperand;
+    return num2;
 }
 
 function populateDisplay() {
@@ -40,7 +40,11 @@ buttons.addEventListener('click', (event) => {
         clearCalculator();
         populateDisplay();
         return;
-    } 
+    } else if (target.classList.contains("delete-button")) {
+        displayValue = displayValue.slice(0, -1);
+        populateDisplay();
+        return;
+    }
         inputNumber(target.value);
         populateDisplay();
 });
@@ -48,9 +52,9 @@ buttons.addEventListener('click', (event) => {
 
 function inputNumber(number) {
     let inputValue = displayValue;
-    if (secondNumber === true) {
+    if (checkSecondNumber === true) {
         displayValue = number;
-        secondNumber = false;
+        checkSecondNumber = false;
     } else if (inputValue === '0') {
         displayValue = inputValue = number;
     } else {
@@ -59,9 +63,9 @@ function inputNumber(number) {
 }
 
 function inputDecimal(decimal) {
-    if (secondNumber === true) {
+    if (checkSecondNumber === true) {
         displayValue = '0.';
-        secondNumber = false;
+        checkSecondNumber = false;
         return;
     }
 
@@ -73,7 +77,7 @@ function inputDecimal(decimal) {
 function inputOperator(nextOperator) {
     let inputValue = parseFloat(displayValue);
 
-    if (selectOperator && secondNumber) {
+    if (selectOperator && checkSecondNumber) {
         selectOperator = nextOperator;
         return;
     }
@@ -85,13 +89,13 @@ function inputOperator(nextOperator) {
         displayValue = parseFloat(result.toFixed(5));
         firstNumber = result;
     }   
-        secondNumber = true;
+        checkSecondNumber = true;
         selectOperator = nextOperator;
 }
 
 function clearCalculator() {
     displayValue = '0';
     firstNumber = null;
-    secondNumber = false;
+    checkSecondNumber = false;
     selectOperator = null;
 }
