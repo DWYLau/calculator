@@ -28,6 +28,18 @@ body {
     width: 500px;
 }
 
+.calculator-history {
+    width:100%;
+    font-size: 2rem;
+    height: 45px;
+    border:none;
+    background-color:rgb(103, 102, 102);
+    color:whitesmoke;
+    padding-right:20px;
+    padding-left:10px;
+    padding: 10px;
+}
+
 .calculator-display {
     width:100%;
     font-size: 7rem;
@@ -38,6 +50,7 @@ body {
     text-align:right;
     padding-right:20px;
     padding-left:10px;
+    padding: 10px;
 }
 
 .calculator-buttons {
@@ -65,8 +78,17 @@ button:hover {
     background-color: yellow;
 }
 
+.equal-button {
+    background-color: rgb(46, 137, 236);
+    color:white;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    grid-column-start: 4;
+    height: 100%;
+}
+
 .operator {
-    background-color:rgb(219, 216, 216);
+    background-color:rgb(154, 255, 96);
 }
 
 .clear-button {
@@ -77,13 +99,4 @@ button:hover {
 .delete-button {
     background-color:rgb(233, 71, 71);
     color: white;
-}
-
-.equal-button {
-    background-color: rgb(46, 137, 236);
-    color:white;
-    grid-row-start: 2;
-    grid-row-end: 5;
-    grid-column-start: 4;
-    height: 100%;
 }
