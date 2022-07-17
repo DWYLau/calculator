@@ -19,22 +19,21 @@ Extra notes:
 
 Methods
 
-• Call HTML with selectors(querySelector + querySelectorAll) and store them in variables.
-• Create separate variables for each function.
-• Example - variables for display, current number, previously entered number, clearing function
-            clearing function.
+* Call HTML with selectors(querySelector + querySelectorAll) and store them in variables.
+* Create separate variables for each function.
+* Example - variables for display, current number, previously entered number, clearing function.
 
-• Example - calculation of 10 + 20.
-            • Call and store 10 first.
-            • Create empty variable to hold number as a string. (Use - let currentNumber = "")
-            • Convert to number later. (Use - Number(currentNumber))
+* Example - calculation of 10 + 20.
+            * Call and store 10 first.
+            * Create empty variable to hold number as a string. (Use - let currentNumber = "")
+            * Convert to number later. (Use - Number(currentNumber))
 
-• Output - Clicking on buttons in calculator.
-            • Result/numbers displayed on screen.
-            • Method - (Use - button.addEventListener ('click', function))
-            • Display should return OR store value of the button clicked.
+* Output - Clicking on buttons in calculator.
+            * Result/numbers displayed on screen.
+            * Method - (Use - button.addEventListener ('click', function))
+            * Display should return OR store value of the button clicked.
 
-• Example - clicking "1" number button.
-            • Use "if statements" to deteremine if number is equal to 0 or not.
-            • If 0 - overwrite 0 with number clicked. e.g 0 ----> 1.
-            • If not 0 - append to number with string concatenation. e.g. 1 ----> 11.
+* Example - clicking "1" number button.
+            * Use "if statements" to deteremine if number is equal to 0 or not.
+            * If 0 - overwrite 0 with number clicked. e.g 0 ----> 1.
+            * If not 0 - append to number with string concatenation. e.g. 1 ----> 11.
