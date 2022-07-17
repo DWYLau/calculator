@@ -42,7 +42,7 @@ body {
 
 .calculator-display {
     width:100%;
-    font-size: 7rem;
+    font-size: 6rem;
     height: 90px;
     border:none;
     background-color:rgb(16, 4, 4);
