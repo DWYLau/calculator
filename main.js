@@ -64,33 +64,38 @@ function handleOperator(mathOperator) { // handling and inputting operators
     }
 }
 
+function operate() {
+    lastNumber = parseFloat(lastNumber);
+    currentNumber = parseFloat(currentNumber);
+
+    switch(operator) {
+        case '+':
+            lastNumber = lastNumber + currentNumber;
+            break;
+        case '-':
+            lastNumber = lastNumber - currentNumber;
+            break;
+        case '*':
+            lastNumber = lastNumber * currentNumber;
+            break;
+        case '/':
+            if (currentNumber <=0) {
+                lastNumber = 'ERROR, RESET'
+                displayResults();
+                return;
+            }
+            lastNumber = lastNumber / currentNumber;
+            break;
+    }
+    lastNumber = lastNumber.toString();
+    displayResults();
+}  
+
 function checkOperator(operation) { // overwriting operators if user changes mind
     operator = operation; // update operator value to operation value
     historyDisplay.textContent = lastNumber + " " + operator; // calculator history will show lastNumber and operator
     calcDisplay.textContent = "0"; // reset calculator display to 0
     currentNumber = "" // reset currentNumber to empty
-}
-
-function operate() { // math calculations
-    lastNumber = parseFloat(lastNumber); // convert to floating point number
-    currentNumber = parseFloat(currentNumber); // convert to floating point number
-
-    if (operator === "+") {
-        lastNumber = lastNumber + currentNumber;
-    }   else if (operator === "-") {
-        lastNumber = lastNumber - currentNumber;
-    }   else if (operator === "*") {
-        lastNumber = lastNumber * currentNumber;
-    }   else if (operator === "/") {
-        if (currentNumber <= 0) { // secondary check to avoid infinity - cannot divide by 0 or minus number
-            lastNumber = 'ERROR, RESET' // display "error" if trying to divide by 0 or minus number
-            displayResults();
-            return // break out of function
-        }
-        lastNumber = lastNumber / currentNumber;
-    }
-    lastNumber = lastNumber.toString(); // convert lastNumber back to string so we can use string methods
-    displayResults();
 }
 
 function displayResults() { // displaying results of calculations
@@ -125,5 +130,31 @@ function deleteNumber() {
         calcDisplay.textContent = currentNumber; // update calculator display to reflect currentNumber
     } if (currentNumber === "") { // if currentNumber is empty
         calcDisplay.textContent = "0"; // set calculator display to 0
+    }
+}
+
+// keyboard support
+
+document.addEventListener('keydown', handleKeyboard);
+
+function handleKeyboard(event) {
+    event.preventDefault();
+    if (event.key >= 00 && event.key <= 9) {
+        inputNumber(event.key)
+    }
+    if (event.key === '=' && currentNum != "" && lastNumber !== "" || event.key === 'Enter') {
+        operate();
+    }
+    if (event.key === "+" || event.key === "-" || event.key === "/" || event.key === "*") {
+        handleOperator(event.key)
+    } 
+    if (event.key === '.') {
+        inputDecimal();
+    }
+    if (event.key === 'Backspace') {
+        deleteNumber();
+    }
+    if (event.key === 'Escape') {
+        resetCalculator();
     }
 }
