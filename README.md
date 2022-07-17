@@ -24,16 +24,16 @@ Methods
 * Example - variables for display, current number, previously entered number, clearing function.
 
 * Example - calculation of 10 + 20.
-            * Call and store 10 first.
-            * Create empty variable to hold number as a string. (Use - let currentNumber = "")
-            * Convert to number later. (Use - Number(currentNumber))
+1. Call and store 10 first.
+2. Create empty variable to hold number as a string. (Use - let currentNumber = "")
+3. Convert to number later. (Use - Number(currentNumber))
 
 * Output - Clicking on buttons in calculator.
-            * Result/numbers displayed on screen.
-            * Method - (Use - button.addEventListener ('click', function))
-            * Display should return OR store value of the button clicked.
+1. Result/numbers displayed on screen.
+2. Method - (Use - button.addEventListener ('click', function))
+3. Display should return OR store value of the button clicked.
 
 * Example - clicking "1" number button.
-            * Use "if statements" to deteremine if number is equal to 0 or not.
-            * If 0 - overwrite 0 with number clicked. e.g 0 ----> 1.
-            * If not 0 - append to number with string concatenation. e.g. 1 ----> 11.
+1. Use "if statements" to deteremine if number is equal to 0 or not.
+2. If 0 - overwrite 0 with number clicked. e.g 0 ----> 1.
+3. If not 0 - append to number with string concatenation. e.g. 1 ----> 11.
