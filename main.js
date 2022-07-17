@@ -100,9 +100,9 @@ function checkOperator(operation) { // overwriting operators if user changes min
 
 function displayResults() { // displaying results of calculations
     if (lastNumber.length <= 12) { // if last number length is less than 12
-        calcDisplay.textContent = lastNumber; // assign calculator display to lastNumber value
+        calcDisplay.textContent = parseFloat(lastNumber); // assign calculator display to lastNumber value + floating point precision
     } else { // if not then...
-        calcDisplay.textContent = lastNumber.slice(0, 12); // assign calculator display to lastNumber value but slice it to 12 numbers
+        calcDisplay.textContent = parseFloat(lastNumber.slice(0, 12)); // assign calculator display to lastNumber value but slice it to 12 numbers + floating point precision
     }
     historyDisplay.textContent = ""; // reset calculator history
     operator = ""; // reset operator for later calculation
